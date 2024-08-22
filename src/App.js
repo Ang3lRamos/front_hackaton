@@ -6,6 +6,7 @@ import HomePage from './Components/HomePage';
 import ReservaPage from './Components/ReservaPage';
 import AdminPage from './Components/AdminPage';
 import NotFound from './Components/NotFound';
+import CourtReservations from './Components/CourtReservations';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/reserva" element={<ReservaPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/reservas-canchas" element={<CourtReservations />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

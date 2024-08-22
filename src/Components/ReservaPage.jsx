@@ -6,43 +6,46 @@ const ReservaPage = () => {
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
   const [court, setCourt] = useState('');
-  const [startTime, setStartTime] = useState(''); 
-  const [endTime, setEndTime] = useState('');    
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (endTime <= startTime) {
-        setMessage('La hora de finalización debe ser posterior a la de inicio');
-        return;
+      setMessage('La hora de finalización debe ser posterior a la de inicio');
+      return;
     }
 
     try {
-        const response = await axios.post('http://localhost:5000/api/reservas', { name, email, date, court, startTime, endTime });
-        alert('Reserva creada exitosamente'); 
-        setName('');
-        setEmail('');
-        setDate('');
-        setCourt('');
-        setStartTime('');
-        setEndTime('');
+      const response = await axios.post('http://localhost:5000/api/reservas', { name, email, date, court, startTime, endTime });
+      alert('Reserva creada exitosamente');
+      setName('');
+      setEmail('');
+      setDate('');
+      setCourt('');
+      setStartTime('');
+      setEndTime('');
     } catch (error) {
-        if (error.response && error.response.status === 400) {
-            setMessage(error.response.data.error);
-        } else {
-            setMessage('Error al crear la reserva');
-        }
+      if (error.response && error.response.status === 400) {
+        setMessage(error.response.data.error);
+      } else {
+        setMessage('Error al crear la reserva');
+      }
     }
-};
-
+  };
 
   return (
     <div className="container mx-auto p-4 bg-white rounded-lg shadow-lg">
-      <h1 className="text-3xl font-bold mb-6 text-blue-600">Crear Reserva</h1>
+      <h1 className="text-3xl md:text-4xl font-bold mb-6 text-blue-600">Crear Reserva</h1>
 
-      <div className="mb-6">
-        <img src="https://www.unac.edu.co/wp-content/uploads/2023/06/Logo_UNAC_svg.svg" alt="u" className="w-50 h-48 object-cover rounded-lg" />
+      <div className="mb-6 flex justify-center">
+        <img
+          src="https://www.unac.edu.co/wp-content/uploads/2023/06/Logo_UNAC_svg.svg"
+          alt="Logo UNAC"
+          className="w-full max-w-xs h-auto object-cover rounded-lg"
+        />
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -77,7 +80,7 @@ const ReservaPage = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-blue-600">Hora de inicio</label>
+          <label className="block text-sm font-medium text-blue-600">Hora de Inicio</label>
           <input
             type="time"
             value={startTime}
@@ -87,7 +90,7 @@ const ReservaPage = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-blue-600">Hora de fin</label>
+          <label className="block text-sm font-medium text-blue-600">Hora de Fin</label>
           <input
             type="time"
             value={endTime}
@@ -105,11 +108,12 @@ const ReservaPage = () => {
             required
           >
             <option value="" disabled>Selecciona una cancha</option>
-            <option value="Cancha 1">Cancha de Futbol principal</option>
-            <option value="Cancha 2">Cancha de Futbol secundaria</option>
-            <option value="Cancha 3">Cancha de Microfutbol</option>
-            <option value="Cancha 4">Cancha de VolleyBall</option>
-            <option value="Cancha 5">Cancha de Baloncesto</option>
+            <option value="Cancha de Futbol principal">Cancha de Futbol principal</option>
+            <option value="Cancha de Futbol secundaria">Cancha de Futbol secundaria</option>
+            <option value="Cancha de Microfutbol">Cancha de Microfutbol</option>
+            <option value="Cancha de VolleyBall">Cancha de VolleyBall</option>
+            <option value="Cancha de Baloncesto">Cancha de Baloncesto</option>
+            <option value="Cancha de Volley Playa">Cancha de Volley Playa</option>
           </select>
         </div>
         <button
