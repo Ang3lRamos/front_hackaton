@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import Chatbot from "./ChatBot"
 const ReservaPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -41,6 +41,7 @@ const ReservaPage = () => {
       <h1 className="text-3xl md:text-4xl font-bold mb-6 text-blue-600">Crear Reserva</h1>
 
       <div className="mb-6 flex justify-center">
+      <Chatbot/>
         <img
           src="https://www.unac.edu.co/wp-content/uploads/2023/06/Logo_UNAC_svg.svg"
           alt="Logo UNAC"

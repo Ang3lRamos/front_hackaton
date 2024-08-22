@@ -7,7 +7,6 @@ import ReservaPage from './Components/ReservaPage';
 import AdminPage from './Components/AdminPage';
 import NotFound from './Components/NotFound';
 import CourtReservations from './Components/CourtReservations';
-
 function App() {
   return (
     <Router>
